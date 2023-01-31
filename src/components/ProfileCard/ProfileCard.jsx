@@ -12,7 +12,7 @@ const ProfileCard = () => {
         <img src={Profile} alt="" />
       </div>
       <div className="ProfileName">
-        <span>Patrick</span>
+        <span>Patty</span>
         <span>Developer</span>
       </div>
       <div className="FollowStatus">
