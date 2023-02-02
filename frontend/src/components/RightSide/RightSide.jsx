@@ -5,6 +5,7 @@ import './RightSide.css'
 import Home from "../../img/home.png"
 import Notification from "../../img/noti.png"
 import Comment from "../../img/comment.png"
+import TrendCard from '../TrendCard/TrendCard'
 
 const RightSide = () => {
   return (
@@ -15,6 +16,7 @@ const RightSide = () => {
         <img src={Notification} alt="" />
         <img src={Comment} alt="" />
       </div>
+      <TrendCard />
     </div>
   )
 }
