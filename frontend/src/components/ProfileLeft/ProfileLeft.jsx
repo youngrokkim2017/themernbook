@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FollwersCard from '../FollowersCard/FollwersCard'
+import FollwersCard from '../FollowersCard/FollowersCard'
 import InfoCard from '../InfoCard/InfoCard'
 import LogoSearch from '../LogoSearch/LogoSearch'
 

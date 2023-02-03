@@ -17,7 +17,7 @@ const RightSide = () => {
         <img src={Comment} alt="" />
       </div>
       <TrendCard />
-      <button className="button right-button" onClick={() => setModalOpened(true)}>
+      <button className="button right-button">
         Share
       </button>
     </div>
