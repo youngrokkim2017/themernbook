@@ -4,7 +4,7 @@ import { UilScenery, UilPlayCircle, UilLocationPoint, UilSchedule, UilTimes } fr
 
 import './PostShare.css'
 import ProfileImg from '../../img/profileImg.jpg'
-import { uploadImage } from '../../actions/uploadAction'
+import { uploadImage, uploadPost } from '../../actions/uploadAction'
 
 const PostShare = () => {
   const [image, setImage] = useState(null);
@@ -39,7 +39,7 @@ const PostShare = () => {
       newPost.image = filename
 
       try {
-        dispatchEvent(uploadImage(data))
+        dispatch(uploadImage(data))
       } catch (error) {
         console.log(error) 
       }
