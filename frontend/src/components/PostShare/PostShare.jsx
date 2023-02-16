@@ -12,6 +12,7 @@ const PostShare = () => {
   const { user } = useSelector((state) => state.authReducer.authData)
   const desc = useRef();
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.postReducer.uploading)
 
   const onImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -43,6 +44,14 @@ const PostShare = () => {
         console.log(error) 
       }
     }
+
+    dispatch(uploadPost(newPost));
+    reset();
+  }
+
+  const reset = () => {
+    setImage(null);
+    desc.current.value = "";
   }
 
   return (
@@ -74,8 +83,9 @@ const PostShare = () => {
           <button 
             className="button ps-button"
             onClick={handleSubmit}
+            disabled={loading}
           >
-            Share
+            {loading? "Uploading..." : "Share"}
           </button>
           <div style={{ display: "none" }}>
               <input 
