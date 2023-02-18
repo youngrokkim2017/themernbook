@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { UilSetting } from '@iconscout/react-unicons'
+import { Link } from 'react-router-dom'
 
 import './RightSide.css'
 import Home from "../../img/home.png"
@@ -14,7 +15,9 @@ const RightSide = () => {
   return (
     <div className="RightSide">
       <div className="navIcons">
-        <img src={Home} alt="" />
+        <Link to='../home'>
+          <img src={Home} alt="" />
+        </Link>
         <UilSetting />
         <img src={Notification} alt="" />
         <img src={Comment} alt="" />
