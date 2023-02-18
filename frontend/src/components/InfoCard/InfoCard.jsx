@@ -6,6 +6,7 @@ import { UilPen } from "@iconscout/react-unicons";
 import './InfoCard.css'
 import ProfileModal from '../ProfileModal/ProfileModal';
 import * as UserApi from  '../../api/userRequest/js'
+import { logout } from '../../actions/AuthAction';
 
 const InfoCard = () => {
   const [modalOpened, setModalOpened] = useState(false)
@@ -26,6 +27,10 @@ const InfoCard = () => {
     }
     fetchProfileUser()
   }, [user])
+
+  const handleLogout = () => {
+    dispatch(logout())
+  }
 
   return (
     <div className="InfoCard">
@@ -63,7 +68,7 @@ const InfoCard = () => {
         </span>
         <span>{profileUser.worksAt}</span>
       </div>
-      <button className="button logout-button">Logout</button>
+      <button className="button logout-button" onClick={handleLogout}>Logout</button>
     </div>
   )
 }
