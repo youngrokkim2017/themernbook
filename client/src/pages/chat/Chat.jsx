@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import './Chat.css'
 import LogoSearch from '../../components/LogoSearch/LogoSearch'
 import { userChats } from '../../api/chatRequest'
+import Conversation from '../../components/Conversation/Conversation'
 
 const Chat = () => {
   const { user } = useSelector((state) => state.authReducer.authData)
@@ -32,7 +33,11 @@ const Chat = () => {
         <div className="Left-side-chat">
           <h2>Chats</h2>
           <div className="Chat-list">
-            conversation component
+            {chats.map((chat) => (
+              <div>
+                <Conversation data={chat} currentUserId={user._id} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
