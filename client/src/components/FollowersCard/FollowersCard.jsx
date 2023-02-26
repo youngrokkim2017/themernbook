@@ -11,9 +11,9 @@ const FollwersCard = () => {
 
   useEffect(() => {
     const fetchPersons = async () => {
-        const { data } = await getAllUsers();
-        setPersons(data);
-        console.log(data)
+      const { data } = await getAllUsers();
+      setPersons(data);
+      console.log(data)
     }
 
     fetchPersons()
@@ -21,12 +21,12 @@ const FollwersCard = () => {
 
   return (
     <div className="FollowersCard">
-        <h3>Suggested followers</h3>
-        {persons.map((person, id) => {
-            if (person._id !== user._id) {
-                <User person={person} key={id} />
-            }
-        })}
+      <h3>Suggested followers</h3>
+      {persons.map((person, id) => {
+        if (person._id !== user._id) {
+          return <User person={person} key={id} />
+        }
+      })}
     </div>
   )
 }

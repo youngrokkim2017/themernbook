@@ -5,8 +5,8 @@ import { UilPen } from "@iconscout/react-unicons";
 
 import './InfoCard.css'
 import ProfileModal from '../ProfileModal/ProfileModal';
-import * as UserApi from  '../../api/userRequest/js'
-import { logout } from '../../actions/AuthAction';
+import * as UserApi from  '../../api/userRequest.js'
+import { logout } from '../../actions/authAction';
 
 const InfoCard = () => {
   const [modalOpened, setModalOpened] = useState(false)
@@ -14,7 +14,7 @@ const InfoCard = () => {
   const params = useParams()
   const profileUserId = params.id
   const [profileUser, setProfileUser] = useState({})
-  const { user } = userSelector((state) => state.authReducer.authData)
+  const { user } = useSelector((state) => state.authReducer.authData)
 
   useEffect(() => {
     const fetchProfileUser = async() => {

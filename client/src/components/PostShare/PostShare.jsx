@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { UilScenery, UilPlayCircle, UilLocationPoint, UilSchedule, UilTimes } from '@iconscout/react-unicons'
 
 import './PostShare.css'
-import ProfileImg from '../../img/profileImg.jpg'
 import { uploadImage, uploadPost } from '../../actions/uploadAction'
 
 const PostShare = () => {

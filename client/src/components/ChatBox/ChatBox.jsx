@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { format } from 'timeago.js'
 import InputEmoji from 'react-input-emoji'
 
+import './ChatBox.css';
 import { getMessages } from '../../api/messageRequest';
 import { getUser } from '../../api/userRequest';
 

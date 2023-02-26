@@ -35,9 +35,9 @@ const Chat = () => {
   return (
     <div className="Chat">
       {/* left side */}
-      <LogoSearch />
-      <div className="Chat-container">
-        <div className="Left-side-chat">
+      <div className="Left-side-chat">
+        <LogoSearch />
+        <div className="Chat-container">
           <h2>Chats</h2>
           <div className="Chat-list">
             {chats.map((chat) => (
@@ -61,9 +61,9 @@ const Chat = () => {
               <img src={Comment} alt="" />
             </Link>
           </div>
+        </div>
           {/* chat body */}
           <ChatBox chat={currentChat} currentUser={user.id} />
-        </div>
       </div>
     </div>
   )

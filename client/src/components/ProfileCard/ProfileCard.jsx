@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import './ProfileCard.css'
-import Cover from '../../img/cover.jpg'
-import Profile from '../../img/profileImg.jpg'
 
 const ProfileCard = ({ location }) => {
   const { user } = useSelector((state) => state.authReducer.authData)
@@ -13,7 +12,7 @@ const ProfileCard = ({ location }) => {
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">
-        <img src={user.coverPicture ? serverPublic + user.coverPicture : serverPublic + "defaultCover.jpg"} alt="" />
+        <img src={user.coverPicture ? serverPublic + user.coverPicture : serverPublic + "defaultCover.jpeg"} alt="" />
         <img src={user.profilePicture ? serverPublic + user.coverPicture : serverPublic + "defaultProfile.png"} alt="" />
       </div>
       <div className="ProfileName">
