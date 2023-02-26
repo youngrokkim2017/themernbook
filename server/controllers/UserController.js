@@ -56,7 +56,7 @@ export const updateUser = async (req, res) => {
                     username: user.username, 
                     id: user._id,
                 },
-                process.env.JWT_KEY,
+                process.env.JWT_SECRET_KEY,
                 { expiresIn: '1h' },
             )
             res.status(200).json({ user, token });
