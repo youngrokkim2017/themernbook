@@ -3,6 +3,7 @@ const postReducer = (
     action
 ) => {
     switch (action.type) {
+        // for postshare.jsx
         case "UPLOAD_START": 
             return {
                 ...state, 
@@ -20,6 +21,26 @@ const postReducer = (
             return {
                 ...state, 
                 uploading: false,
+                error: true,
+            }
+        // for posts.jsx
+        case "RETRIEVING_START":
+            return {
+                ...state,
+                loading: true,
+                error: false,
+            }
+        case "RETRIEVING_SUCCESS":
+            return {
+                ...state,
+                posts: action.data,
+                loading: false,
+                error: false,
+            }
+        case "RETRIEVING_FAIL":
+            return {
+                ...state,
+                loading: false,
                 error: true,
             }
         default:
