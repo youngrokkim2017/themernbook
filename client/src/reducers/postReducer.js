@@ -43,6 +43,20 @@ const postReducer = (
                 loading: false,
                 error: true,
             }
+        // // for post.jsx
+        // case "LIKE_OR_UNLIKE_SUCCESS":
+        //     return {
+        //         ...state,
+        //         posts: action.data,
+        //         loading: false,
+        //         error: false,
+        //     }
+        // case "LIKE_FAIL":
+        //     return {
+        //         ...state,
+        //         loading: false,
+        //         error: true,
+        //     }
         default:
             return state
     }

@@ -7,6 +7,7 @@ import Share from '../../img/share.png'
 import Heart from '../../img/like.png'
 import NotLike from '../../img/notlike.png'
 import { likePost } from '../../api/postRequest'
+// import { likePost } from '../../actions/postAction'
 
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
