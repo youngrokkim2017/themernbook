@@ -6,7 +6,7 @@ import './ChatBox.css';
 import { addMessage, getMessages } from '../../api/messageRequest';
 import { getUser } from '../../api/userRequest';
 
-const ChatBox = ({ chat, currentUser }) => {
+const ChatBox = ({ chat, currentUser,setSendMessage, receiveMessage }) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState(" ");
@@ -61,7 +61,18 @@ const ChatBox = ({ chat, currentUser }) => {
     } catch (error) {
       console.log(error)
     }
+
+    // send message to socket server
+    const receiverId = chat.members.find((id) => id !== currentUser)
+    setSendMessage([...message, receiverId])
   }
+
+  // receive message
+  useEffect(() => {
+    if (receiveMessage !== null && receiveMessage?.chatId === chat?._id) {
+      setMessages([...messages, receiveMessage])
+    }
+  }, [receiveMessage])
   
   return (
     <>
