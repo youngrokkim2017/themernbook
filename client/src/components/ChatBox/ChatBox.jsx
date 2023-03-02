@@ -3,7 +3,7 @@ import { format } from 'timeago.js'
 import InputEmoji from 'react-input-emoji'
 
 import './ChatBox.css';
-import { getMessages } from '../../api/messageRequest';
+import { addMessage, getMessages } from '../../api/messageRequest';
 import { getUser } from '../../api/userRequest';
 
 const ChatBox = ({ chat, currentUser }) => {
@@ -42,6 +42,25 @@ const ChatBox = ({ chat, currentUser }) => {
 
   const handleChange = (newMessage) => {
     setNewMessage(newMessage)
+  }
+
+  const handleSend = async (e) => {
+    e.preventDefault()
+
+    const message = {
+      senderId: currentUser,
+      text: newMessage,
+      chatId: chat._id,
+    }
+
+    // send message to mongodb
+    try {
+      const { data } = await addMessage(message)
+      setMessages([...messages, data])
+      setNewMessage('')
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   return (
@@ -87,7 +106,10 @@ const ChatBox = ({ chat, currentUser }) => {
                     value={newMessage}
                     onChange={handleChange}
                     />
-                    <div className="send-button button">
+                    <div 
+                      className="send-button button"
+                      onClick={handleSend}
+                    >
                     Send
                     </div>
                 </div>
