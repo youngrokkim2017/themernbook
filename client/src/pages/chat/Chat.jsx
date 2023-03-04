@@ -69,13 +69,31 @@ const Chat = () => {
     return online ? true : false 
   }
 
+  // const handleCreateChat = () => {
+
+  // }
+
   return (
     <div className="Chat">
       {/* left side */}
       <div className="Left-side-chat">
         <LogoSearch />
         <div className="Chat-container">
-          <h2>Chats</h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <h2>Chats</h2>
+            {/* <button 
+              className="create-chat"
+              onClick={handleCreateChat}
+              style={{ 
+                height: '30px',
+                width: '30px',
+                cursor: 'pointer',
+                marginTop: '15px',
+              }}
+            >
+              +
+            </button> */}
+          </div>
           <div className="Chat-list">
             {chats.map((chat) => (
               <div onClick={() => setCurrentChat(chat)}>
