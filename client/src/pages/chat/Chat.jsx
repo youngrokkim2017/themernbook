@@ -124,7 +124,7 @@ const Chat = () => {
           {/* chat body */}
           <ChatBox 
             chat={currentChat} 
-            currentUser={user.id} 
+            currentUser={user._id} 
             setSendMessage={setSendMessage} 
             receiveMessage={receiveMessage} 
           />
