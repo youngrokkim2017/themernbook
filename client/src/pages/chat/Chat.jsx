@@ -12,6 +12,7 @@ import Home from "../../img/home.png"
 import Notification from "../../img/noti.png"
 import Comment from "../../img/comment.png"
 import ChatBox from '../../components/ChatBox/ChatBox'
+import NewChatModal from '../../components/NewChatModal/NewChatModal'
 
 const Chat = () => {
   const { user } = useSelector((state) => state.authReducer.authData)
@@ -20,6 +21,7 @@ const Chat = () => {
   const [onlineUsers, setOnlineUsers] = useState([])
   const [sendMessage, setSendMessage] = useState(null)
   const [receiveMessage, setReceiveMessage] = useState(null)
+  const [modalOpened, setModalOpened] = useState(false)
   const socket = useRef()
 
   
@@ -81,9 +83,10 @@ const Chat = () => {
         <div className="Chat-container">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h2>Chats</h2>
-            {/* <button 
-              className="create-chat"
-              onClick={handleCreateChat}
+            <button 
+              className="create-chat button"
+              // onClick={handleCreateChat}
+              onClick={() => setModalOpened(true)}
               style={{ 
                 height: '30px',
                 width: '30px',
@@ -92,7 +95,13 @@ const Chat = () => {
               }}
             >
               +
-            </button> */}
+            </button>
+            <NewChatModal 
+              modalOpened={modalOpened}
+              setModalOpened={setModalOpened}
+              currentUser={user}
+              chats={chats}
+            />
           </div>
           <div className="Chat-list">
             {chats.map((chat) => (
