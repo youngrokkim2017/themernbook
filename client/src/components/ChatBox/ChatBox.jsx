@@ -65,7 +65,7 @@ const ChatBox = ({ chat, currentUser,setSendMessage, receiveMessage }) => {
 
     // send message to socket server
     const receiverId = chat.members.find((id) => id !== currentUser)
-    setSendMessage([...message, receiverId])
+    setSendMessage({...message, receiverId})
   }
 
   // receive message
