@@ -1,26 +1,44 @@
 import { Modal, useMantineTheme } from "@mantine/core";
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux'
 import { UilSearch } from '@iconscout/react-unicons';
 
 import { getAllUsers } from "../../api/userRequest";
+import { createChat } from "../../api/chatRequest";
 
-function NewChatModal({ modalOpened, setModalOpened, currentUser, chats }) {
+function NewChatModal({ modalOpened, setModalOpened, currentUser, chats, setCurrentChat }) {
   const theme = useMantineTheme();
   const [persons, setPersons] = useState([]);
+  const dispatch = useDispatch();
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
   useEffect(() => {
     const fetchPersons = async () => {
       const { data } = await getAllUsers();
       setPersons(data);
-    //   console.log(data)
     }
 
     fetchPersons()
   }, [])
 
-  const handleStartChat = () => {
-    
+  const handleStartChat = (currentUserId, personId) => {
+    // try {
+    // //   dispatch(createChat([currentUserId, personId]))
+    //   dispatch(createChat({
+    //     senderId: currentUserId,
+    //     receiverId: personId
+    //   }))
+    // } catch (error) {
+    //   console.log(error)  
+    // }
+    // // dispatch(createChat({
+    // //   senderId: currentUserId,
+    // //   receiverId: personId
+    // // }))
+  }
+
+  const handleGoToChat = (chat, person) => {
+    // setCurrentChat(chat)
   }
 
   return (
@@ -67,7 +85,7 @@ function NewChatModal({ modalOpened, setModalOpened, currentUser, chats }) {
                   return (
                     <button 
                       className="button fc-button"
-                      onClick={handleStartChat}
+                      onClick={handleGoToChat}
                       style={{
                         color: 'var(--orange)',
                         border: '2px solid var(--orange)',

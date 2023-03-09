@@ -83,7 +83,7 @@ const Chat = () => {
         <div className="Chat-container">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h2>Chats</h2>
-            <button 
+            {/* <button 
               className="create-chat button"
               // onClick={handleCreateChat}
               onClick={() => setModalOpened(true)}
@@ -101,7 +101,8 @@ const Chat = () => {
               setModalOpened={setModalOpened}
               currentUser={user}
               chats={chats}
-            />
+              setCurrentChat={setCurrentChat}
+            /> */}
           </div>
           <div className="Chat-list">
             {chats.map((chat) => (
