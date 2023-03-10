@@ -35,10 +35,12 @@ function NewChatModal({ modalOpened, setModalOpened, currentUser, chats, setCurr
     // //   senderId: currentUserId,
     // //   receiverId: personId
     // // }))
+    setModalOpened(false);
   }
 
   const handleGoToChat = (chat, person) => {
     // setCurrentChat(chat)
+    setModalOpened(false);
   }
 
   return (
