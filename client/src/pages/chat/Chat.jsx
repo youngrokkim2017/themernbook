@@ -15,7 +15,7 @@ import Comment from "../../img/comment.png"
 import ChatBox from '../../components/ChatBox/ChatBox'
 import { getAllUsers } from '../../api/userRequest'
 import ChatSearchItem from '../../components/ChatLeft/ChatSearchItem/ChatSearchItem'
-// import NewChatModal from '../../components/NewChatModal/NewChatModal'
+import NewChatModal from '../../components/NewChatModal/NewChatModal'
 
 const Chat = () => {
   const { user } = useSelector((state) => state.authReducer.authData)
@@ -27,7 +27,7 @@ const Chat = () => {
   const [persons, setPersons] = useState([])
   const [query, setQuery] = useState('')
   const [searchTerm, setSearchTerm] = useState('');
-  // const [modalOpened, setModalOpened] = useState(false)
+  const [modalOpened, setModalOpened] = useState(false)
   const socket = useRef()
   
   // initialize socket
@@ -67,7 +67,9 @@ const Chat = () => {
       }
     }
     getChats()
-  }, [user])
+  }, [user, chats.length])
+
+  // console.log(chats)
 
   // check online status
   const checkOnlineStatus = (chat) => {
@@ -112,13 +114,15 @@ const Chat = () => {
   const fuse = new Fuse(persons, options)
   const results = fuse.search(query, { limit: 5 })
   const searchResults = results.length > 0 ? results.map(result => result.item) : persons.slice(0, 5)
-  console.log(results)
-  console.log(searchResults)
+  // console.log(results)
+  // console.log(searchResults)
 
   const handleOnSearchChange = ({ currentTarget = {} }) => {
     const { value } = currentTarget;
     setQuery(value);
   }
+
+  console.log(currentChat)
 
   return (
     <div className="Chat">
@@ -128,7 +132,7 @@ const Chat = () => {
         <div className="Chat-container">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h2>Chats</h2>
-            {/* <button 
+            <button 
               className="create-chat button"
               // onClick={handleCreateChat}
               onClick={() => setModalOpened(true)}
@@ -147,7 +151,17 @@ const Chat = () => {
               currentUser={user}
               chats={chats}
               setCurrentChat={setCurrentChat}
-            /> */}
+            />
+              {/* {chats.map((chat) => (
+                <NewChatModal 
+                  modalOpened={modalOpened}
+                  setModalOpened={setModalOpened}
+                  currentUser={user}
+                  chat={chat}
+                  setCurrentChat={setCurrentChat}
+                  // person={person}
+                />
+              ))} */}
           </div>
           {/* search users to start chat */}
           <div>
