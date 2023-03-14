@@ -67,7 +67,7 @@ const Chat = () => {
       }
     }
     getChats()
-  }, [user, chats.length])
+  }, [user])
 
   // console.log(chats)
 
@@ -164,23 +164,7 @@ const Chat = () => {
               ))} */}
           </div>
           {/* search users to start chat */}
-          <div>
-            {/* search */}
-            {/* {persons.map((person, id) => {
-              {chats.map((chat, i) => {
-                if (person._id !== user._id && person.followers.includes(user._id) && !chat.members.includes(person._id)) {
-                  return (
-                    <div>
-                      <img src={person.profilePicture ? serverPublic + person.coverPicture : serverPublic + "defaultProfile.png"} alt="" className='followerImage'/>
-                      <div className="name">
-                        <span>{person.firstname}</span>
-                        <span>{person.username}</span>
-                      </div>
-                    </div>
-                  )
-                }
-              })}
-            })} */}
+          {/* <div>
             <div>
               <form>
                 <input
@@ -210,7 +194,7 @@ const Chat = () => {
                   ))}
                 </div>
             }
-          </div>
+          </div> */}
           <div className="Chat-list">
             {chats.map((chat) => (
               <div onClick={() => setCurrentChat(chat)}>

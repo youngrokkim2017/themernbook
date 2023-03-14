@@ -5,6 +5,7 @@ import { UilSearch } from '@iconscout/react-unicons';
 
 import { getAllUsers } from "../../api/userRequest";
 import { createChat, findChat } from "../../api/chatRequest";
+import FuseSearch from "../Search/FuseSearch";
 
 function NewChatModal({ modalOpened, setModalOpened, currentUser, chats, setCurrentChat }) {
 // function NewChatModal({ modalOpened, setModalOpened, currentUser, chat, setCurrentChat }) {
@@ -161,6 +162,13 @@ function NewChatModal({ modalOpened, setModalOpened, currentUser, chats, setCurr
       opened={modalOpened}
       onClose={() => setModalOpened(false)}
     >
+      <FuseSearch 
+        user={currentUser} 
+        persons={persons} 
+        chats={chats}
+        setCurrentChat={setCurrentChat}
+        setModalOpened={setModalOpened}
+      />
       {/* <div className="Search">
         <input type="text" placeholder="Search for friends" style={{ width: '100%', marginBottom: '15px' }} />
         <div className="s-icon">
