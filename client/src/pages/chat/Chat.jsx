@@ -36,7 +36,6 @@ const Chat = () => {
     socket.current.emit('new-user-add', user._id)
     socket.current.on('get-users', (users) => {
       setOnlineUsers(users)
-      // console.log(onlineUsers)
     })
   }, [user])
 
@@ -54,8 +53,6 @@ const Chat = () => {
     })
   }, [])
 
-  // console.log(user)
-
   useEffect(() => {
     const getChats = async () => {
       try {
@@ -69,8 +66,6 @@ const Chat = () => {
     getChats()
   }, [user])
 
-  // console.log(chats)
-
   // check online status
   const checkOnlineStatus = (chat) => {
     const chatMember = chat.members.find((member) => member !== user._id)
@@ -78,16 +73,11 @@ const Chat = () => {
     return online ? true : false 
   }
 
-  // const handleCreateChat = () => {
-
-  // }
-
   // fuse search
   useEffect(() => {
     const fetchPersons = async () => {
       const { data } = await getAllUsers();
       setPersons(data);
-      // console.log(data)
     }
 
     fetchPersons()
@@ -114,8 +104,6 @@ const Chat = () => {
   const fuse = new Fuse(persons, options)
   const results = fuse.search(query, { limit: 5 })
   const searchResults = results.length > 0 ? results.map(result => result.item) : persons.slice(0, 5)
-  // console.log(results)
-  // console.log(searchResults)
 
   const handleOnSearchChange = ({ currentTarget = {} }) => {
     const { value } = currentTarget;
@@ -134,7 +122,6 @@ const Chat = () => {
             <h2>Chats</h2>
             <button 
               className="create-chat button"
-              // onClick={handleCreateChat}
               onClick={() => setModalOpened(true)}
               style={{ 
                 height: '30px',
@@ -152,49 +139,7 @@ const Chat = () => {
               chats={chats}
               setCurrentChat={setCurrentChat}
             />
-              {/* {chats.map((chat) => (
-                <NewChatModal 
-                  modalOpened={modalOpened}
-                  setModalOpened={setModalOpened}
-                  currentUser={user}
-                  chat={chat}
-                  setCurrentChat={setCurrentChat}
-                  // person={person}
-                />
-              ))} */}
           </div>
-          {/* search users to start chat */}
-          {/* <div>
-            <div>
-              <form>
-                <input
-                  className="bg-transparent border-none w-full text-black placeholder-gray-600 focus:outline-none ml-2 sans-serif"
-                  type="text"
-                  placeholder="Search"
-                  value={query}
-                  onChange={handleOnSearchChange}
-                />
-              </form>
-            </div>
-            {query.length > 2 && results.length > 0 ?
-              <div>
-                {results.map((result) => (
-                  // results is a nested array, result is an object, result.item is an object w/ user details
-                  <ChatSearchItem searchResults={searchResults} user={user} />
-                ))}
-              </div>
-              : (query.length > 0) || (results.length === 0) ?
-                <div>
-                  No results match your search input
-                </div>
-              : <div>
-                  {results.map((result) => (
-                    // results is a nested array, result is an object, result.item is an object w/ user details
-                    <ChatSearchItem searchResults={searchResults} user={user} />
-                  ))}
-                </div>
-            }
-          </div> */}
           <div className="Chat-list">
             {chats.map((chat) => (
               <div onClick={() => setCurrentChat(chat)}>

@@ -1,24 +1,12 @@
 import React, { useState } from 'react'
 import Fuse from "fuse.js"
 
-import { getAllUsers } from '../../api/userRequest'
-// import ChatSearchItem from '../ChatLeft/ChatSearchItem/ChatSearchItem'
 import FuseSearchItem from './FuseSearchItem'
 
 const FuseSearch = ({ user, persons, chats, setCurrentChat, setModalOpened }) => {
-//   const [persons, setPersons] = useState([])
   const [query, setQuery] = useState('')
 
   // fuse search
-//   useEffect(() => {
-//     const fetchPersons = async () => {
-//       const { data } = await getAllUsers();
-//       setPersons(data);
-//     }
-
-//     fetchPersons()
-//   }, [])
-
   const options = {
     keys: [
       {
@@ -63,7 +51,6 @@ const FuseSearch = ({ user, persons, chats, setCurrentChat, setModalOpened }) =>
       {query.length > 2 && results.length > 0 ?
         <div>
           {results.map((result) => (
-            // results is a nested array, result is an object, result.item is an object w/ user details
             <FuseSearchItem searchResults={searchResults} user={user} chats={chats} setCurrentChat={setCurrentChat} setModalOpened={setModalOpened} />
           ))}
         </div>
@@ -73,7 +60,6 @@ const FuseSearch = ({ user, persons, chats, setCurrentChat, setModalOpened }) =>
           </div>
         : <div>
             {results.map((result) => (
-              // results is a nested array, result is an object, result.item is an object w/ user details
               <FuseSearchItem searchResults={searchResults} user={user} chats={chats} setCurrentChat={setCurrentChat} setModalOpened={setModalOpened} />
             ))}
           </div>
