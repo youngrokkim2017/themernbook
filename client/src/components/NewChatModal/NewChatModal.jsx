@@ -73,7 +73,7 @@ function NewChatModal({ modalOpened, setModalOpened, currentUser, chats, setCurr
         setCurrentChat={setCurrentChat}
         setModalOpened={setModalOpened}
       />
-      {persons.map((person, id) => {
+      {/* {persons.map((person, id) => {
         if (person._id !== currentUser._id && person.followers.includes(currentUser._id)) {
           return (
             <div className="follower" style={{ marginBottom: '15px' }}>
@@ -110,7 +110,7 @@ function NewChatModal({ modalOpened, setModalOpened, currentUser, chats, setCurr
             </div>
           )
         }
-      })}
+      })} */}
     </Modal>
   );
 }
