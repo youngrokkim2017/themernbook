@@ -1,0 +1,8 @@
+.follower-new-chat {
+  border-radius: 0.5rem;
+  padding: 10px;
+}
+
+.follower-new-chat > div {
+  position: relative;
+}

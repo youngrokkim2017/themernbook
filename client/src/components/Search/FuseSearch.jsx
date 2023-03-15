@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import Fuse from "fuse.js"
 
 import { getAllUsers } from '../../api/userRequest'
-import ChatSearchItem from '../ChatLeft/ChatSearchItem/ChatSearchItem'
+// import ChatSearchItem from '../ChatLeft/ChatSearchItem/ChatSearchItem'
+import FuseSearchItem from './FuseSearchItem'
 
-const FuseSearch = ({ user, persons }) => {
+const FuseSearch = ({ user, persons, chats, setCurrentChat, setModalOpened }) => {
 //   const [persons, setPersons] = useState([])
   const [query, setQuery] = useState('')
 
@@ -47,14 +48,15 @@ const FuseSearch = ({ user, persons }) => {
 
   return (
     <div>
-      <div>
-        <form>
+      <div style={{ paddingBottom: '5px' }}>
+        <form className='Search'>
           <input
-            className="bg-transparent border-none w-full text-black placeholder-gray-600 focus:outline-none ml-2 sans-serif"
+            className="fuse-search"
             type="text"
             placeholder="Search"
             value={query}
             onChange={handleOnSearchChange}
+            style={{ width: '100%', border: '2px solid var(--orange)', borderRadius: '0.5rem', padding: '10px 10px' }}
           />
         </form>
       </div>
@@ -62,17 +64,17 @@ const FuseSearch = ({ user, persons }) => {
         <div>
           {results.map((result) => (
             // results is a nested array, result is an object, result.item is an object w/ user details
-            <ChatSearchItem searchResults={searchResults} user={user} />
+            <FuseSearchItem searchResults={searchResults} user={user} chats={chats} setCurrentChat={setCurrentChat} setModalOpened={setModalOpened} />
           ))}
         </div>
         : (query.length > 0) || (results.length === 0) ?
           <div>
-            No results match your search input
+            {/* No results match your search input */}
           </div>
         : <div>
             {results.map((result) => (
               // results is a nested array, result is an object, result.item is an object w/ user details
-              <ChatSearchItem searchResults={searchResults} user={user} />
+              <FuseSearchItem searchResults={searchResults} user={user} chats={chats} setCurrentChat={setCurrentChat} setModalOpened={setModalOpened} />
             ))}
           </div>
       }
