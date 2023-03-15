@@ -11,11 +11,10 @@ const FuseSearchItem = ({ searchResults, user, chats, setCurrentChat, setModalOp
 
   const handleStartChat = (personId) => {
     try {
-    //   setCurrentChatData(dispatch(createChat({
-      dispatch(createChat({
+      setCurrentChatData(dispatch(createChat({
         senderId: user._id,
         receiverId: personId
-      }))
+      })))
     } catch (error) {
       console.log(error)
     }
