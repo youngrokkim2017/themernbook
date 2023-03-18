@@ -57,13 +57,13 @@ const Auth = () => {
       <div className="a-left">
         <img src={Logo} alt="" />
         <div className="Webname">
-          <h1>Social Media</h1>
+          <h1>What's the Tea?</h1>
         </div>
       </div>
       
       <div className="a-right">
         <form className="infoForm authForm" onSubmit={handleSubmit}>
-          <h3>{isSignUp ? 'Sign Up' : 'Log In'}</h3>
+          <h3>{isSignUp ? 'Signup' : 'Login'}</h3>
           {isSignUp && (
             <div>
               <input
@@ -133,7 +133,12 @@ const Auth = () => {
                 resetForm();
               }}
             >
-              {isSignUp ? "Already have an account. Log In" : "Don't have an account? Sign Up"}
+              {/* {isSignUp ? "Already have an account. Log In" : "Don't have an account? Sign Up"} */}
+              {isSignUp ? (
+                <span>Already have an account? <span style={{ fontWeight: 'bold' }}>Log In</span></span>
+              ) : (
+                <span>Don't have an account? <span style={{ fontWeight: 'bold' }}>Sign Up</span></span>
+              )}
             </span>
           </div>
           <button className="button infoButton" type="submit" disabled={loading}>
@@ -196,7 +201,7 @@ const Auth = () => {
 // const LogIn = () => (
 //   <div className="a-right">
 //     <form className="infoForm authForm">
-//       <h3>Log In</h3>
+//       <h3></h3>
 //       <div>
 //         <input
 //           type="text"
