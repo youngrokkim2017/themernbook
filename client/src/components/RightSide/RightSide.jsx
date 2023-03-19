@@ -5,12 +5,13 @@ import { useSelector } from 'react-redux'
 import { io } from 'socket.io-client'
 
 import './RightSide.css'
-import Home from "../../img/home.png"
+import HomeIcon from "../../img/home.png"
 // import Notification from "../../img/noti.png"
-import Market from "../../img/market.png"
-import Comment from "../../img/comment.png"
-import TrendCard from '../TrendCard/TrendCard'
-import ShareModal from '../ShareModal/ShareModal'
+import MarketIcon from "../../img/market.png"
+// import Comment from "../../img/comment.png"
+import ChatIcon from "../../img/chat.png"
+// import TrendCard from '../TrendCard/TrendCard'
+// import ShareModal from '../ShareModal/ShareModal'
 import { userChats } from '../../api/chatRequest'
 import Conversation from '../Conversation/Conversation'
 
@@ -55,13 +56,14 @@ const RightSide = () => {
     <div className="RightSide">
       <div className="navIcons">
         <Link to='../home'>
-          <img src={Home} alt="" />
+          <img src={HomeIcon} alt="" />
         </Link>
         {/* <UilSetting /> */}
         {/* <img src={Notification} alt="" /> */}
-        <img src={Market} alt="" />
+        <img src={MarketIcon} alt="" />
         <Link to='../chat'>
-          <img src={Comment} alt="" />
+          {/* <img src={Comment} alt="" /> */}
+          <img src={ChatIcon} alt="" />
         </Link>
       </div>
       {/* <TrendCard />
