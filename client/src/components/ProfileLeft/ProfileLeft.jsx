@@ -1,6 +1,7 @@
 import React from 'react'
 
-import FollwersCard from '../FollowersCard/FollowersCard'
+// import '../ProfileLeft/ProfileLeft.css'
+// import FollwersCard from '../FollowersCard/FollowersCard'
 import InfoCard from '../InfoCard/InfoCard'
 import LogoSearch from '../LogoSearch/LogoSearch'
 
@@ -9,7 +10,7 @@ const ProfileLeft = () => {
     <div className="ProfileSide">
       <LogoSearch />
       <InfoCard />
-      <FollwersCard />
+      {/* <FollwersCard /> */}
     </div>
   )
 }

@@ -13,7 +13,8 @@ import ChatIcon from "../../img/chat.png"
 // import TrendCard from '../TrendCard/TrendCard'
 // import ShareModal from '../ShareModal/ShareModal'
 import { userChats } from '../../api/chatRequest'
-import Conversation from '../Conversation/Conversation'
+// import Conversation from '../Conversation/Conversation'
+import FollwersCard from '../FollowersCard/FollowersCard'
 
 const RightSide = () => {
   const { user } = useSelector((state) => state.authReducer.authData)
@@ -66,6 +67,7 @@ const RightSide = () => {
           <img src={ChatIcon} alt="" />
         </Link>
       </div>
+      <FollwersCard />
       {/* <TrendCard />
       <button className="button right-button" onClick={() => setModalOpened(true)}>
         Share
@@ -74,7 +76,7 @@ const RightSide = () => {
         modalOpened={modalOpened}
         setModalOpened={setModalOpened}
       /> */}
-      <div>
+      {/* <div>
         <div style={{ pointerEvents: 'none' }}>
           <div className="Chat-list">
             {chats.map((chat) => (
@@ -88,7 +90,7 @@ const RightSide = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

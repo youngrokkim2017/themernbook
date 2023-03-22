@@ -1,16 +1,16 @@
 import React from 'react'
 
-import './ProfileSide.css'
+// import './ProfileSide.css'
 import LogoSearch from '../LogoSearch/LogoSearch'
 import ProfileCard from '../ProfileCard/ProfileCard'
-import FollwersCard from '../FollowersCard/FollowersCard'
+// import FollwersCard from '../FollowersCard/FollowersCard'
 
 const ProfileSide = () => {
   return (
-    <div className='profileSide'>
+    <div className='ProfileSide'>
         <LogoSearch />
         <ProfileCard location='homepage' />
-        <FollwersCard />
+        {/* <FollwersCard /> */}
     </div>
   )
 }
