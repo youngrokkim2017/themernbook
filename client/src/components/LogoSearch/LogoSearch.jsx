@@ -17,6 +17,9 @@ const LogoSearch = () => {
                 <UilSearch />
             </div>
         </div> */}
+        <div className='logo-name'>
+          TheTea
+        </div>
     </div>
   )
 }

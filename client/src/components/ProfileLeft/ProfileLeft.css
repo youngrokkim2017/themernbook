@@ -1,0 +1,24 @@
+.LogoSearch {
+    margin-top: 1rem;
+    display: flex;
+    /* justify-content: space-between; */
+    /* justify-content: left; */
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.LogoSearch > img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.LogoSearch > a > img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.logo-name {
+    margin-top: 5px;
+    font-weight: bold;
+    color: var(--orange);
+}
