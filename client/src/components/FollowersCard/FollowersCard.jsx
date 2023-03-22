@@ -13,7 +13,7 @@ const FollwersCard = () => {
     const fetchPersons = async () => {
       const { data } = await getAllUsers();
       setPersons(data);
-      console.log(data)
+      // console.log(data)
     }
 
     fetchPersons()

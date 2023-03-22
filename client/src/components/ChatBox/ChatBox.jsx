@@ -19,7 +19,7 @@ const ChatBox = ({ chat, currentUser,setSendMessage, receiveMessage }) => {
       try {
         const { data } = await getUser(userId)
         setUserData(data)
-        console.log(data)
+        // console.log(data)
       } catch (error) {
         console.log(error)  
       }
@@ -32,7 +32,7 @@ const ChatBox = ({ chat, currentUser,setSendMessage, receiveMessage }) => {
     const fetchMessages = async () => {
       try {
         const { data } = await getMessages(chat._id)
-        console.log(data)
+        // console.log(data)
         setMessages(data)
       } catch (error) {
         console.log(error)

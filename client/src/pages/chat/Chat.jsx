@@ -110,7 +110,7 @@ const Chat = () => {
     setQuery(value);
   }
 
-  console.log(currentChat)
+  // console.log(currentChat)
 
   return (
     <div className="Chat">
