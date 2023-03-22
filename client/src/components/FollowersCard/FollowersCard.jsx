@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import './FollowersCard.css'
 import User from '../User/User'
@@ -24,7 +25,8 @@ const FollwersCard = () => {
       <h3>Suggested followers</h3>
       {persons.map((person, id) => {
         if (person._id !== user._id) {
-          return <User person={person} key={id} />
+          // return <User person={person} key={id} />
+          return <User person={person} key={id} location='homepage' />
         }
       })}
     </div>

@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux'
 
 import './ProfileCard.css'
 
-const ProfileCard = ({ location }) => {
-  const { user } = useSelector((state) => state.authReducer.authData)
+// const ProfileCard = ({ location }) => {
+const ProfileCard = ({ location, user }) => {
+  // const { user } = useSelector((state) => state.authReducer.authData)
   const posts = useSelector((state) => state.postReducer.posts)
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 

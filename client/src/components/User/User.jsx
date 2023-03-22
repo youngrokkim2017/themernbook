@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { followUser, unfollowUser } from '../../actions/userAction';
 
-const User = ({ person }) => {
+// const User = ({ person }) => {
+const User = ({ person, location }) => {
     const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
     const { user } = useSelector((state) => state.authReducer.authData);
     const dispatch = useDispatch()
@@ -22,7 +24,19 @@ const User = ({ person }) => {
             <div>
                 <img src={person.profilePicture ? serverPublic + person.coverPicture : serverPublic + "defaultProfile.png"} alt="" className='followerImage'/>
                 <div className="name">
-                    <span>{person.firstname}</span>
+                    {/* <span>{person.firstname}</span>
+                    <span>{person.username}</span> */}
+                    {location === 'profilePage' 
+                      ? '' 
+                      : (<span>
+                          <Link
+                            to={`/profile/${person._id}`} 
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                          >
+                            {person.firstname}
+                          </Link>
+                        </span>
+                    )}
                     <span>{person.username}</span>
                 </div>
             </div>
