@@ -43,6 +43,13 @@ const postReducer = (
                 loading: false,
                 error: true,
             }
+        // for deleting post
+        case "DELETING_START":
+            return {
+                ...state,
+                loading: false,
+                error: false,
+            }
         // // for post.jsx
         // case "LIKE_OR_UNLIKE_SUCCESS":
         //     return {

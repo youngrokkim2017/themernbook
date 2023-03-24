@@ -19,6 +19,14 @@ export const getTimelinePosts = (id) => async (dispatch) => {
     }
 }
 
+export const deletePost = (id) => async (dispatch) => {
+    dispatch({
+        type: "DELETING_START"
+    })
+
+    PostApi.deletePost(id)
+}
+
 // export const likePost = (id, userId) => async (dispatch) => {
 //     try {
 //         const { data } = await PostApi.likePost(id, userId)
