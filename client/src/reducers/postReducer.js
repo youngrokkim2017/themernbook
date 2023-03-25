@@ -2,6 +2,10 @@ const postReducer = (
     state = { posts: [], loading: false, error: false, uploading: false },
     action
 ) => {
+    Object.freeze(state);
+
+    let newState = Object.assign({}, state);
+
     switch (action.type) {
         // for postshare.jsx
         case "UPLOAD_START": 
@@ -45,11 +49,13 @@ const postReducer = (
             }
         // for deleting post
         case "DELETING_START":
-            return {
-                ...state,
-                loading: false,
-                error: false,
-            }
+            // return {
+            //     ...state,
+            //     loading: false,
+            //     error: false,
+            // }
+            delete newState[action.id];
+            return newState;
         // // for post.jsx
         // case "LIKE_OR_UNLIKE_SUCCESS":
         //     return {
