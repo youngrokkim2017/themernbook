@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import './Post.css'
 import Comment from '../../img/comment.png'
@@ -7,12 +7,14 @@ import Share from '../../img/share.png'
 import Heart from '../../img/like.png'
 import NotLike from '../../img/notlike.png'
 import { likePost } from '../../api/postRequest'
+import { deletePost } from '../../actions/postAction'
 // import { likePost } from '../../actions/postAction'
 
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const [liked, setLiked] = useState(data.likes.includes(user._id));
   const [likes, setLikes] = useState(data.likes.length);
+  const dispatch = useDispatch();
 
   const handleLike = () => {
     setLiked((prev) => !prev)
@@ -20,13 +22,22 @@ const Post = ({ data }) => {
     liked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1)
   }
 
+  const handleDelete = (post) => {
+    // e.preventDefault();
+    
+    dispatch(deletePost(post))
+  }
+
   return (
     <div className="Post">
         <img src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : ""} alt="" />
         <div className="postReact">
-            <img src={liked ? Heart : NotLike} alt="" style={{ cursor: 'pointer' }} onClick={handleLike} />
+            {user._id === data.userId && (
+                <img src={Share} alt="" style={{ cursor: 'pointer' }} onClick={handleDelete} />
+            )}
+            {/* <img src={Share} alt="" /> */}
             <img src={Comment} alt="" />
-            <img src={Share} alt="" />
+            <img src={liked ? Heart : NotLike} alt="" style={{ cursor: 'pointer' }} onClick={handleLike} />
         </div>
         <span style={{color: "var(--gray)", fontSize: '12px'}}>{likes} likes</span>
         <div className="detail">
