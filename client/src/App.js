@@ -1,5 +1,10 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core'
+// import icons
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
 
 import './App.css';
 import Auth from './pages/auth/Auth';
@@ -26,3 +31,4 @@ function App() {
 }
 
 export default App;
+library.add(fab, fas, far)
