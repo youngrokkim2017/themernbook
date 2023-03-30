@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { io } from 'socket.io-client'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './RightSide.css'
 import HomeIcon from "../../img/home.png"
@@ -57,14 +58,17 @@ const RightSide = () => {
     <div className="RightSide">
       <div className="navIcons">
         <Link to='../home'>
-          <img src={HomeIcon} alt="" />
+          {/* <img src={HomeIcon} alt="" /> */}
+          <FontAwesomeIcon icon="fa-solid fa-house" style={{ color: "#ff7b00" }} />
         </Link>
         {/* <UilSetting /> */}
         {/* <img src={Notification} alt="" /> */}
-        <img src={MarketIcon} alt="" />
+        {/* <img src={MarketIcon} alt="" /> */}
+          <FontAwesomeIcon icon="fa-solid fa-cart-shopping" style={{ color: "#ff7b00" }} />
         <Link to='../chat'>
           {/* <img src={Comment} alt="" /> */}
-          <img src={ChatIcon} alt="" />
+          {/* <img src={ChatIcon} alt="" /> */}
+          <FontAwesomeIcon icon="fa-solid fa-comment-dots" style={{ color: "#ff7b00" }} />
         </Link>
       </div>
       <FollwersCard />

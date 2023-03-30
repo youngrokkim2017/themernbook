@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './Auth.css'
 import Logo from '../../img/logo.png'
@@ -55,7 +56,8 @@ const Auth = () => {
   return (
     <div className="Auth">
       <div className="a-left">
-        <img src={Logo} alt="" />
+        {/* <img src={Logo} alt="" /> */}
+        <FontAwesomeIcon icon="fa-duotone fa-mug-tea-saucer" style={{"--fa-primary-color": "#ff5900", "--fa-secondary-color": "#ff5900",}} />
         <div className="Webname">
           <h1>What's the Tea?</h1>
         </div>

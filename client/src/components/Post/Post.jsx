@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './Post.css'
 import Comment from '../../img/comment.png'
@@ -33,7 +34,7 @@ const Post = ({ data }) => {
         <img src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : ""} alt="" />
         <div className="postReact">
             {user._id === data.userId && (
-                <img src={Share} alt="" style={{ cursor: 'pointer' }} onClick={handleDelete} />
+                <FontAwesomeIcon icon="fa-solid fa-trash-can" style={{ cursor: 'pointer', color: "#ff7700" }} onClick={handleDelete} />
             )}
             {/* <img src={Share} alt="" /> */}
             <img src={Comment} alt="" />
