@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Sidebar.css';
 import { logout } from '../../actions/authAction';
@@ -20,23 +21,23 @@ function Sidebar() {
     <>
       <div className='navbar'>
         <Link to='#' className='menu-bars'>
-          <button onClick={showSidebar} />
+          <button onClick={showSidebar} style={{ border: "none", fontSize: "30px", backgroundColor: "none", cursor: "pointer" }}>
+            <FontAwesomeIcon icon="fa-solid fa-bars" style={{ color: "#ff9500" }} />
+          </button>
         </Link>
       </div>
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-        <ul className='nav-menu-items' onClick={showSidebar}>
-          <li className='navbar-toggle'>
-            <Link to='#' className='menu-bars'>
-              X
+        {/* <ul className='nav-menu-items' onClick={showSidebar}> */}
+        <ul className='nav-menu-items'>
+          <li className='navbar-toggle' style={{  }}>
+            <Link to='#' className='menu-bars' style={{  }}>
+              <button onClick={showSidebar} style={{ border: "none", fontSize: "30px", backgroundColor: "#060b26", padding: "0 16px", cursor: "pointer" }}>
+                <FontAwesomeIcon icon="fa-solid fa-xmark" style={{ color: "#ffa200" }} />    
+              </button>
             </Link>
           </li>
           <li className='nav-text'>
-            <Link to=''>
-              <span>Link</span>
-            </Link>
-          </li>
-          <li className='nav-text'>
-            <Link to='../home' style={{ textDecoration: 'none' }}>
+            <Link to='../home'>
                 <span>Home</span>
             </Link>
           </li>
