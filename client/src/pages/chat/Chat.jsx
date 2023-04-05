@@ -16,6 +16,7 @@ import ChatBox from '../../components/ChatBox/ChatBox'
 import { getAllUsers } from '../../api/userRequest'
 import ChatSearchItem from '../../components/ChatLeft/ChatSearchItem/ChatSearchItem'
 import NewChatModal from '../../components/NewChatModal/NewChatModal'
+import Sidebar from '../../components/Sidebar/Sidebar'
 
 const Chat = () => {
   const { user } = useSelector((state) => state.authReducer.authData)
@@ -116,7 +117,10 @@ const Chat = () => {
     <div className="Chat">
       {/* left side */}
       <div className="Left-side-chat">
-        <LogoSearch />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Sidebar />
+          <LogoSearch />
+        </div>
         <div className="Chat-container">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h2>Chats</h2>
